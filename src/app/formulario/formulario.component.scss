@@ -42,3 +42,36 @@ button {
     display: block;
     margin: auto;
 }
+
+
+
+
+@media only screen and (max-width: 767px) {
+    .form {
+        width: 100%;
+        display: flex;
+        margin: 20px auto 20px auto;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .middle {
+        width: 60%;
+    }
+    
+    .popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 60%;
+        height: auto;
+        transform: translate(-50%, -50%);
+        background-color: #fffffffa;
+        padding: 20px;
+        border: 2px solid #ffa600;
+        box-shadow: 0 0 10px rgb(255, 196, 0);
+        z-index: 2;
+        border-radius: 5px;
+    }
+}

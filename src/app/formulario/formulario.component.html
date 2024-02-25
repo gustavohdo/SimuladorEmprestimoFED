@@ -45,6 +45,7 @@
     <span>
         <b>{{formData.nome}}</b>, essa é sua simulação:
     </span>
+    <br>
     <p>
         Valor emprestado:  {{formData.valorEmprestimo| currency:'BRL':'symbol':'1.2-2'}} <br>
         Valor das parcelas: {{valorParcela | currency:'BRL':'symbol':'1.2-2'}}<br>
@@ -57,9 +58,11 @@
   
 <div class="popup" *ngIf="showPopup">
     <h2>Confirmar empréstimo</h2>
-    <p>Valor das parcelas: {{valorParcela | currency:'BRL':'symbol':'1.2-2'}}</p>
-    <p>Número de parcelas: {{ parcelas }}</p>
-    <p>Total do valor com juros: {{valorTotal | currency:'BRL':'symbol':'1.2-2'}}</p>
+    <p>
+        Valor das parcelas: {{valorParcela | currency:'BRL':'symbol':'1.2-2'}}<br>
+        Número de parcelas: {{ parcelas }}<br>
+        Total do valor com juros: {{valorTotal | currency:'BRL':'symbol':'1.2-2'}}
+    </p>
     <button  mat-raised-button color="warn" (click)="confirm()">Confirmar</button>
     <button  mat-stroked-button color="warn" (click)="cancel()">Cancelar</button>
 </div>
