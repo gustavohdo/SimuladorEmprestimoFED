@@ -1,0 +1,7 @@
+<div class="conclusao">
+    <h2>O empréstimo foi realizado com sucesso! <br> Veja abaixo o que você contratou:</h2>
+    <p>Valor das parcelas: {{valorParcela | currency:'BRL':'symbol':'1.2-2'}}</p>
+    <p>Número de parcelas: {{ parcelas }}</p>
+    <p>Total do valor com juros:{{valorTotal | currency:'BRL':'symbol':'1.2-2'}}</p>
+    <button  mat-stroked-button color="warn" (click)="voltar()">Novo empréstimo</button>
+</div>
