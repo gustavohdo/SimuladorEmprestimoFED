@@ -17,7 +17,8 @@
         placeholder="Valor do empréstimo" 
         value="valorEmprestimo" 
         id="valorEmprestimo" 
-        name="valorEmprestimo" 
+        name="valorEmprestimo"
+        [min]="1" 
         ngModel required 
         [(ngModel)]="formData.valorEmprestimo"
         >
@@ -30,12 +31,13 @@
         [value]="formData.numeroParcelas" 
         id="numeroParcelas" 
         name="numeroParcelas"
+        [min]="1"
         ngModel required 
         [(ngModel)]="formData.numeroParcelas"
         >
     </mat-form-field>
         
-    <button mat-raised-button color="warn" type="submit" [disabled]="!form.valid">
+    <button mat-raised-button color="warn" type="submit" [disabled]="!form.valid || formData.valorEmprestimo == 0 || formData.numeroParcelas == 0">
         Simular Empréstimo
     </button>
 </form>

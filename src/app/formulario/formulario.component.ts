@@ -45,14 +45,16 @@ export class FormularioComponent implements OnInit {
   }
 
   confirm() {
-
-    sessionStorage.setItem('valorTotal', this.valorTotal.toString());
-    sessionStorage.setItem('parcelas', this.parcelas.toString());
-    sessionStorage.setItem('valorParcela', this.valorParcela.toString());
-    sessionStorage.setItem('valorEmprestimo', this.formData.valorEmprestimo.toString());
     sessionStorage.setItem('confirmado', 'true');
 
-    this.router.navigate(['/conclusao']);
+    let data = {
+      valorTotal: this.valorTotal,
+      parcelas: this.parcelas,
+      valorParcela: this.valorParcela,
+      valorEmprestimo: this.formData.valorEmprestimo
+    };
+
+    this.router.navigate(['/conclusao'], { queryParams: data });
     this.showPopup = false;
   }
 

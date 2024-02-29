@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-conclusao',
@@ -13,22 +13,17 @@ export class ConclusaoComponent implements OnInit {
   valorParcela: number;
   valorEmprestimo: number;
 
-  constructor(private router: Router) { }
-
+  constructor(private router: Router, private route: ActivatedRoute) { }
+  
   ngOnInit(): void {
-    const navigation = this.router.getCurrentNavigation();
-    const state = navigation?.extras.state as {
-      valorTotal: number;
-      parcelas: number;
-      valorParcela: number;
-      valorEmprestimo: number;
-    };
-
-    this.valorTotal = parseFloat(sessionStorage.getItem('valorTotal'));
-    this.parcelas = parseFloat(sessionStorage.getItem('parcelas'));
-    this.valorParcela = parseFloat(sessionStorage.getItem('valorParcela'));
-    this.valorEmprestimo = parseFloat(sessionStorage.getItem('valorEmprestimo'));
+    this.route.queryParams.subscribe(params => {
+      this.valorTotal = params['valorTotal'];
+      this.parcelas = params['parcelas'];
+      this.valorParcela = params['valorParcela'];
+      this.valorEmprestimo = params['valorEmprestimo'];
+    });
 }
+
   voltar(){
     this.router.navigate(['/']);
   }
